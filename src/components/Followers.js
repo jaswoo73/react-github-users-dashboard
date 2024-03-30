@@ -8,6 +8,7 @@ const Followers = () => {
   return (
     <Wrapper>
       <div className="followers">
+        {followers.length === 0 && <h4>No followers</h4>}
         {followers.map((follower, index) => {
           const { avatar_url: img, html_url, login } = follower;
           return (

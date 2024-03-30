@@ -40,7 +40,15 @@ const Search = () => {
           </div>
         </form>
         <h3>
-          requests: {remaining} / {limit}
+          requests:{" "}
+          <span
+            style={{
+              color: remaining < 10 ? "red" : remaining < 25 ? "orange" : "",
+            }}
+          >
+            {remaining}
+          </span>{" "}
+          / {limit}
         </h3>
       </Wrapper>
     </section>

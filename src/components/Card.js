@@ -20,7 +20,7 @@ const Card = () => {
         <img src={avatar_url} alt={name} />
         <div>
           <h4>{name}</h4>
-          <p>{"@" + twitter_username || "No twitter handle found"}</p>
+          <p>{twitter_username ? "@" + twitter_username : "@" + "N/A"}</p>
         </div>
         <a href={html_url}>Github Profile</a>
       </header>
@@ -28,18 +28,23 @@ const Card = () => {
       <div className="links">
         <p>
           <MdBusiness />
-          {company || "-"}
+          {company || "N/A"}
         </p>
         <p>
           <MdLocationOn />
           {location}
         </p>
         <p>
-          <a href={`https://${blog}`}>
-            {" "}
-            <MdLink />
-            {blog}
-          </a>
+          {blog ? (
+            <a href={`https://${blog}`}>
+              <MdLink /> {blog}
+            </a>
+          ) : (
+            <>
+              <MdLink />
+              N/A
+            </>
+          )}
         </p>
       </div>
     </Wrapper>
